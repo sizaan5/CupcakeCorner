@@ -7,23 +7,40 @@
 
 import SwiftUI
 
-@Observable class User: Codable {
-    enum CodingKeys: String, CodingKey {
-        case _name = "name"
-    }
-    var name = "Izaan"
-}
-
 struct ContentView: View {
+    @State private var order = Order()
     
     var body: some View {
-        Button("Encode Izaan", action: encodeIzaan)
-    }
-    
-    func encodeIzaan() {
-        let data = try! JSONEncoder().encode(User())
-        let str = String(decoding: data, as: UTF8.self)
-        print(str)
+        NavigationStack {
+            Form {
+                Section {
+                    Picker("Select yout cake type", selection: $order.type) {
+                        ForEach(Order.types.indices, id: \.self)
+                        {
+                            Text(Order.types[$0])
+                        } 
+                    }
+                    
+                    Stepper("Number of cakes: \(order.quantity)", value: $order.quantity, in: 3...20)
+                }
+                
+                Section {
+                    Toggle("Any special requests?", isOn: $order.specialRequestEnabled.animation())
+                    
+                    if order.specialRequestEnabled {
+                        Toggle("Add extra frosting", isOn: $order.extraFrosting)
+                        Toggle("Add extra sprinkles", isOn: $order.addSprinkles)
+                    }
+                }
+                
+                Section {
+                    NavigationLink("Delivery details") {
+                        AddressView(order: order)
+                    }
+                }
+            }
+            .navigationTitle("Cupcake Corner")
+        }
     }
 }
 
