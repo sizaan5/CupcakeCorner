@@ -75,6 +75,7 @@ import Foundation
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "name")
+            self.updateHasValidAddress()
         }
     }
     var streetAddress: String {
@@ -83,6 +84,7 @@ import Foundation
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "streetAddress")
+            self.updateHasValidAddress()
         }
     }
     var city: String {
@@ -91,6 +93,7 @@ import Foundation
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "city")
+            self.updateHasValidAddress()
         }
     }
     var zip: String {
@@ -99,10 +102,11 @@ import Foundation
         }
         set {
             UserDefaults.standard.set(newValue, forKey: "zip")
+            self.updateHasValidAddress()
         }
     }
     
-    var hasValidAddress: Bool {
+    var hasValidAddressOld: Bool {
         /*if name.isEmpty || streetAddress.isEmpty || city.isEmpty || zip.isEmpty {
             return false
         }*/
@@ -114,6 +118,15 @@ import Foundation
         }
         return true
     }
+    
+    private func updateHasValidAddress() {
+        hasValidAddress = !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+        !streetAddress.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+        !city.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty &&
+        !zip.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+    
+    var hasValidAddress = false
     
     var cost: Decimal {
         //$2 per cake

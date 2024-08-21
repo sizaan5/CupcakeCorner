@@ -25,6 +25,7 @@
 		338AB28E2B9732290065E75A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		338AB2902B97322B0065E75A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		338AB2932B97322B0065E75A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		339672042BECDDB80094C885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +58,7 @@
 		338AB28B2B9732290065E75A /* CupcakeCorner */ = {
 			isa = PBXGroup;
 			children = (
+				339672042BECDDB80094C885 /* Info.plist */,
 				338AB28C2B9732290065E75A /* CupcakeCornerApp.swift */,
 				338AB28E2B9732290065E75A /* ContentView.swift */,
 				3366883A2BA1766300C3F143 /* AddressView.swift */,
@@ -287,6 +289,7 @@
 				DEVELOPMENT_TEAM = 5X49TR88XZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CupcakeCorner/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -317,6 +320,7 @@
 				DEVELOPMENT_TEAM = 5X49TR88XZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CupcakeCorner/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
